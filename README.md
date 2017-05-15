@@ -57,4 +57,4 @@ PS C:\temp> Set-ExecutionPolicy RemoteSigned
 Try run script again and it should be fine.
 
 Created by @guldfiskhen
-Inspired by @sp4rk2_
+https://twitter.com/guldfiskhen
