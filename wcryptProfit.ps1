@@ -17,3 +17,15 @@ foreach ($wallet in $wallets) {
 	
 }
 Write-Host "TOTAL BTC RECEIVED: $btctotal BTC" -Foreground "green"
+
+$coins = Invoke-RestMethod -Method Get -Uri "https://api.coinmarketcap.com/v1/ticker/"
+ForEach ($coin in $coins) {
+  [int]$rank = $coin.rank
+  If ($rank -lt "2")	{
+	$price = $coin.price_usd
+	$price = $price.Substring(0, $price.IndexOf('.'))
+	$btcPriceUsd = [int]$price * [int]$btctotal
+  }
+}
+Write-Host "TOTAL USD RECEIVED: $btcPriceUsd USD" -Foreground "green" 
+
